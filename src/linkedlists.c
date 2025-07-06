@@ -3,16 +3,6 @@
 #include <linkedlists.h>
 
 int main(){
-
-    
-    node_t* my_list = LL_create(3);
-    
-    LL_append(my_list, 1);
-    LL_append(my_list, 2);
-    LL_append(my_list, 3);
-    LL_print(my_list);
-    LL_delete_index(&my_list, 0);
-    LL_print(my_list);
     return 0;
 }
 
