@@ -16,6 +16,8 @@ node_t* LL_create(int value){
 
 void LL_print(node_t* head){
     node_t* itr = head;
+
+    // traverse the list.
     while (itr != NULL){
         printf("%d", itr->val);
         itr = itr->next;
@@ -29,6 +31,7 @@ void LL_print(node_t* head){
 void LL_append(node_t* head, int value) {
     node_t* itr = head;
 
+    // traverse the list to last index.
     while(itr->next != NULL){
         itr = itr->next;
 
@@ -53,6 +56,7 @@ int LL_pop(node_t** head){
     node_t* next_node = NULL;
     int return_value = -1;
 
+    // incase of empty/non-initialized list.
     if (*head == NULL){
         return -1;
     }
@@ -69,10 +73,12 @@ int LL_delete_index(node_t** head, int index){
     node_t* prev_node = NULL;
     int return_value = -1;
 
+    // remove head if index 0.
     if (index == 0) {
         return LL_pop(head);
     }
 
+    // traverse the list and save index-1 node.
     for(int i = 0; i < index; i++){
         if(i == index-1){
             prev_node = itr;
@@ -91,10 +97,12 @@ int LL_delete_last(node_t** head){
     node_t* itr = *head;
     int return_value = -1;
     
+    // if list contains only 1 item.
     if ((*head)->next == NULL){
         return LL_pop(head);
     }
 
+    // traverse the list to 2nd-to-last index.
     while(itr->next->next != NULL){
         itr = itr->next;
     }
@@ -110,16 +118,16 @@ int LL_delete_value(node_t** head, int value){
     node_t* del_node = NULL;
     int return_value = -1;
 
-    if (itr->next == NULL){
-        return LL_pop(head);
-    }
-
+    // if value is at head, remove head.
     if ((*head)->val == value){
         return LL_pop(head);
     }
 
+    // traverse the list
     while(itr->next->val != value){
         itr = itr->next;
+
+        // if value doesn't exist.
         if ((itr->next->next == NULL) && (itr->next->val != value)){
             return -1;
         }
@@ -130,6 +138,5 @@ int LL_delete_value(node_t** head, int value){
 
     itr->next=del_node->next;
     free(del_node);
-
     return return_value;
 }
