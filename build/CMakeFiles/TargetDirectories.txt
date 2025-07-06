@@ -1,3 +1,0 @@
-C:/Programming/linkedlists/build/CMakeFiles/linkedlists.dir
-C:/Programming/linkedlists/build/CMakeFiles/edit_cache.dir
-C:/Programming/linkedlists/build/CMakeFiles/rebuild_cache.dir
